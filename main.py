@@ -18,15 +18,17 @@ class Bank(User):
     def deposit(self, amount):
         self.amount = amount
         self.balance = self.balance + self.amount
+        print(f"Successfully deposited {self.amount}.\nNew balance is {self.balance}")
 
     def withdraw(self, amount):
         self.amount = amount
         if self.balance >= self.amount:
             self.balance = self.balance - self.amount
+            print(f"Successfully withdrawn {self.amount}.\nNew balance is {self.balance}")
         else:
             print("Insufficient Funds")
 
-    def show_balance(self):
+    def view_balance(self):
         print(f"Balance: {self.balance}")
 
 def main():
@@ -36,7 +38,7 @@ def main():
     bank = Bank(user.name, user.age, user.gender)
     bank.deposit(500)
     bank.withdraw(100)
-    bank.show_balance()
+    bank.view_balance()
     
 if __name__ == "__main__":
     main()
